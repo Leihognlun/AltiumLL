@@ -440,6 +440,7 @@ Sub AssignSTEPmodel(STEPFileName, RotX, RotY, RotZ, X, Y, Z)
     PCBLib.CurrentComponent = temp_fp
 
     STEPmodel = PCBServer.PCBObjectFactory(eComponentBodyObject,eNoDimension,eCreate_Default)
+    STEPmodel.layer = eMechanical2
     Model = STEPmodel.ModelFactory_FromFilename(STEPFileName, false)
     'STEPmodel.SetState_FromModel
     X = replace(X,".",decChar)
@@ -2557,4 +2558,3 @@ outputStr = objRegExp.Replace(strtoclean,"_")
 
 strClean = outputStr
 End Function
-
