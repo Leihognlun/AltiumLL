@@ -186,7 +186,7 @@ Sub CreateAssemblyLine(x1,y1,x2,y2,width)
 
     atrack = PCBServer.PCBObjectFactory(eTrackObject,eNoDimension,eCreate_Default)
     atrack.width = mmstocoord(width)
-    atrack.layer = eMechanical4
+    atrack.layer = eMechanical20
     atrack.x1 = mmstocoord(x1)+footprint.x
     atrack.x2 = mmstocoord(x2)+footprint.x
     atrack.y1 = mmstocoord(y1)+footprint.y
@@ -217,7 +217,7 @@ Sub CreateAssemblyCircle(x,y,rad,width)
     acircle.LineWidth = mmstocoord(width)
     acircle.StartAngle = 0
     acircle.EndAngle = 360
-    acircle.layer = eMechanical4
+    acircle.layer = eMechanical20
 
     if footprint Is Nothing Then Exit Sub
     footprint.board.addpcbobject(acircle)
@@ -246,7 +246,7 @@ Sub CreateAssemblyArc(x,y,rad,startAngle,endAngle,width)
     aarc.LineWidth = mmstocoord(width)
     aarc.StartAngle = startAngle
     aarc.EndAngle = endAngle
-    aarc.layer = eMechanical13
+    aarc.layer = eMechanical20
 
     if footprint Is Nothing Then Exit Sub
     footprint.board.addpcbobject(aarc)
