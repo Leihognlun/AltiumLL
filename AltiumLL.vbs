@@ -47,7 +47,7 @@ Sub CreateCourtyardLine(x1,y1,x2,y2,width)
 
     atrack = PCBServer.PCBObjectFactory(eTrackObject,eNoDimension,eCreate_Default)
     atrack.width = mmstocoord(width)
-    atrack.layer = eMechanical15
+    atrack.layer = eMechanical14
     atrack.x1 = mmstocoord(x1)+footprint.x
     atrack.x2 = mmstocoord(x2)+footprint.x
     atrack.y1 = mmstocoord(y1)+footprint.y
@@ -78,7 +78,7 @@ Sub CreateCourtyardCircle(x,y,rad,width)
     acircle.LineWidth = mmstocoord(width)
     acircle.StartAngle = 0
     acircle.EndAngle = 360
-    acircle.layer = eMechanical15
+    acircle.layer = eMechanical14
 
     if footprint Is Nothing Then Exit Sub
     footprint.board.addpcbobject(acircle)
@@ -186,7 +186,7 @@ Sub CreateAssemblyLine(x1,y1,x2,y2,width)
 
     atrack = PCBServer.PCBObjectFactory(eTrackObject,eNoDimension,eCreate_Default)
     atrack.width = mmstocoord(width)
-    atrack.layer = eMechanical13
+    atrack.layer = eMechanical20
     atrack.x1 = mmstocoord(x1)+footprint.x
     atrack.x2 = mmstocoord(x2)+footprint.x
     atrack.y1 = mmstocoord(y1)+footprint.y
@@ -217,7 +217,7 @@ Sub CreateAssemblyCircle(x,y,rad,width)
     acircle.LineWidth = mmstocoord(width)
     acircle.StartAngle = 0
     acircle.EndAngle = 360
-    acircle.layer = eMechanical13
+    acircle.layer = eMechanical20
 
     if footprint Is Nothing Then Exit Sub
     footprint.board.addpcbobject(acircle)
@@ -246,7 +246,7 @@ Sub CreateAssemblyArc(x,y,rad,startAngle,endAngle,width)
     aarc.LineWidth = mmstocoord(width)
     aarc.StartAngle = startAngle
     aarc.EndAngle = endAngle
-    aarc.layer = eMechanical13
+    aarc.layer = eMechanical20
 
     if footprint Is Nothing Then Exit Sub
     footprint.board.addpcbobject(aarc)
@@ -448,7 +448,7 @@ Sub AssignSTEPmodel(STEPFileName, RotX, RotY, RotZ, X, Y, Z)
     Model.SetState RotX,RotY,RotZ,mmstocoord(z)
     STEPmodel.Model = Model
     footprint.AddPCBObject(STEPmodel)
-
+	STEPmodel.layer = eMechanical2
     STEPmodel.MoveByXY mmstocoord(x), mmstocoord(y)
     PCBLib.RemoveComponent(temp_fp)
 
